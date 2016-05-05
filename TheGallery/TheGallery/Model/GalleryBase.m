@@ -10,6 +10,12 @@
 
 @implementation GalleryBase
 
+/*
+Function: setAttributesWithDictionary
+Description: Parses the the dictionary of JSON data as per the class properity keys and updates the respective property value
+Parameters:
+Returns:
+*/
 -(void)setAttributesWithDictionary:(NSDictionary*)jsonObjArray
 {
     NSArray* keyArray = [jsonObjArray allKeys];
@@ -39,6 +45,10 @@
 
 }
 
+
+
+
+//Property string manipulation functions
 -(NSString*)mappingForCodingConvention:(NSString*)inAttributeKey
 {
     //Override on if required

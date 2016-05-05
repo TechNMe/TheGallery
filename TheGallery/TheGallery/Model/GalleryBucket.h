@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "GalleryBase.h"
 
-@interface GalleryBucket : GalleryBase <NSCopying>
+@interface GalleryBucket : GalleryBase
 {
     NSString* _title;
     

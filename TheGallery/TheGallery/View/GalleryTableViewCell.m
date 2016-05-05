@@ -25,7 +25,12 @@
 
 @synthesize imageLoadingIndicator = _imageLoadingIndicator;
 
-
+/*
+ Function: initWithStyle:reuseIdentifier
+ Description: Overriding for custom setup
+ Parameters:
+ Returns:
+ */
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -37,6 +42,12 @@
     return self;
 }
 
+/*
+ Function: initializeView
+ Description:Initialize this cell view designing specifically for the gally list view requirement
+ Parameters:
+ Returns:
+ */
 - (void)initializeView
 {
     self.backgroundColor = [UIColor colorWithRed:1.0 green:0.9746 blue:0.933 alpha:1];
@@ -69,6 +80,12 @@
 }
 
 
+/*
+ Function: setupCustomConstraints
+ Description: Setup constaints to the label view for growing the cell in accordance with the description label hight
+ Parameters:
+ Returns:
+ */
 -(void)setupCustomConstraints
 {
     self.descriptionLabel.translatesAutoresizingMaskIntoConstraints = NO;
@@ -81,11 +98,24 @@
 
 }
 
+/*
+ Function: setSelected:animated
+ Description:
+ Parameters:
+ Returns:
+ */
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
 }
 
+
+/*
+ Function: layoutSubviews
+ Description: Overriding layout subviews growing the cell in accordance with the description label hight
+ Parameters:
+ Returns:
+ */
 - (void)layoutSubviews
 {
     [super layoutSubviews];

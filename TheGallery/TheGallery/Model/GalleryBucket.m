@@ -24,16 +24,12 @@
 
 @synthesize rows = _rows;
 
-- (id)copyWithZone:(NSZone *)zone {
-    GalleryBucket *newObj = [[[self class] allocWithZone:zone] init];
-    if(newObj)
-    {
-        [newObj setTitle:[self title]];
-        [newObj setRows:[self rows]];
-    }
-    return newObj;
-}
-
+/*
+ Function:
+ Description:
+ Parameters:
+ Returns:
+ */
 - (instancetype)init
 {
     self = [super init];
@@ -44,22 +40,12 @@
     return self;
 }
 
-//-(void)fetchUpdatedGalleryBucketWithCallback:(void (^)(NSError *error))callabck
-//{
-//    [self fetchDataFromServerWithCallback:^(NSError *error)
-//    {
-//        if (!error)
-//        {
-//            callabck(nil);
-//
-//        }
-//       
-//        callabck(error);
-//    }];
-//    
-//}
-
-
+/*
+ Function: fetchUpdatedGalleryBucketWithCallback
+ Description: Fetches the data for the model from server. Executes completion block once the session request is executed
+ Parameters:
+ Returns:
+ */
 -(void)fetchUpdatedGalleryBucketWithCallback:(void (^)(NSError *error))completionCallback
 {
     NSURL* dataURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kDataURLDomain,[self resourceURL]]];
@@ -85,6 +71,12 @@
     
 }
 
+/*
+ Function: updateBucketWithData
+ Description: Prases the JSON response and sets the attributes of the model. This can be optimized and implemented in GallertyBase
+ Parameters:
+ Returns:
+ */
 -(void)updateBucketWithData:(NSData*)data
 {
     NSError *error = nil;
@@ -105,13 +97,24 @@
 }
 
 
+/*
+ Function:resourceURL
+ Description: Returns the resource url of the model
+ Parameters:
+ Returns:
+ */
 -(NSString*)resourceURL
 {
     return @"u/746330/facts.json";
 }
 
 
-
+/*
+ Function:classNameFor
+ Description: Property string manipulation functions. In cases of having a class with different name than that of JSON response key
+ Parameters:
+ Returns:
+ */
 -(NSString*)classNameFor:(NSString*)inAttributeKey
 {
     if ([inAttributeKey isEqualToString:@"rows"])

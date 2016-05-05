@@ -16,6 +16,12 @@
 
 @synthesize imageHref = _imageHref;
 
+/*
+ Function:
+ Description:
+ Parameters:
+ Returns:
+ */
 - (instancetype)init
 {
     self = [super init];
@@ -27,6 +33,12 @@
     return self;
 }
 
+/*
+ Function: mappingForCodingConvention
+ Description:Property string manipulation functions, such as if the JSON key is 'description'
+ Parameters:
+ Returns:
+ */
 -(NSString*)mappingForCodingConvention:(NSString*)inAttributeKey
 {
     if ([inAttributeKey isEqualToString:@"description"])
