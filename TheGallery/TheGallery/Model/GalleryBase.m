@@ -24,11 +24,11 @@ Returns:
     {
         id property = jsonObjArray[key];
         
-        if([property isKindOfClass:[NSString class]])
+        if([property isKindOfClass:[NSString class]] && property != nil && property != [NSNull null])
         {
             [self setValue:jsonObjArray[key] forKey:[self mappingForCodingConvention:key]];
         }
-        if([property isKindOfClass:[NSArray class]])
+        if([property isKindOfClass:[NSArray class]] && property != nil && property != [NSNull null])
         {
             for (id propertyItem in property)
             {

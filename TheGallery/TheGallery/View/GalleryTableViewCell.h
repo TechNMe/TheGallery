@@ -9,15 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface GalleryTableViewCell : UITableViewCell
-{
-    UILabel * _descriptionLabel;
-    
-    UIImageView * _imageView;
-    
-    UILabel * _titleLabel;
-    
-    UIActivityIndicatorView * _imageLoadingIndicator;
-}
 
 @property (strong, nonatomic) UILabel *descriptionLabel;
 

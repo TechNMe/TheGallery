@@ -10,14 +10,6 @@
 #import "GalleryBase.h"
 
 @interface GalleryItem : GalleryBase
-{
-    NSString* _title;
-
-    NSString* _descriptionString;
-
-    NSString* _imageHref;
-
-}
 
 @property (strong, atomic) NSString* title;
 

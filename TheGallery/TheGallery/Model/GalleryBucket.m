@@ -8,21 +8,13 @@
 
 #import "GalleryBucket.h"
 @interface GalleryBucket()
-{
-}
 
 -(NSString*)resourceURL;
-
-//-(void)fetchDataFromServerWithCallback:(void(^)(NSError* error))completionCallback;
 
 @end
 
 
 @implementation GalleryBucket
-
-@synthesize title = _title;
-
-@synthesize rows = _rows;
 
 /*
  Function:
@@ -35,7 +27,7 @@
     self = [super init];
     if (self) {
         _title = [[NSString alloc] init];
-        _rows = [[NSMutableArray alloc] init];
+        _rows = [[NSMutableArray alloc] init]; //TODO
     }
     return self;
 }

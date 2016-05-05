@@ -10,11 +10,6 @@
 #import "GalleryBase.h"
 
 @interface GalleryBucket : GalleryBase
-{
-    NSString* _title;
-    
-    NSMutableArray* _rows;
-}
 
 @property (strong, atomic) NSString* title;
 

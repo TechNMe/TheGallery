@@ -9,9 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface UIView (LoadingView)
-{
-    
-}
 
 -(void)addLoadingViewWithMessage:(NSString*)message;
 
