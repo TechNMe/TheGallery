@@ -45,16 +45,6 @@
 {
     [super viewDidLoad];
     
-    UIButton *refreshButton = [[UIButton alloc] init];
-    [refreshButton setTitle:@"Your string" forState:UIControlStateNormal];
-    //[refreshButton setImage:[UIImage imageNamed:@"default.jpg"] forState:UIControlStateNormal];
-    [refreshButton addTarget:self action:@selector(updateGalleryData:) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIBarButtonItem *refreshButtonItem = [[UIBarButtonItem alloc] initWithCustomView:refreshButton];
-    
-    self.navigationItem.rightBarButtonItem = refreshButtonItem;
-
-    
     //Initialise the UI
     [self initializeView];
 }
