@@ -34,8 +34,8 @@
 }
 
 /*
- Function:
- Description:
+ Function: mappingForCodingConvention
+ Description:Property string manipulation functions, such as if the JSON key is 'description'
  Parameters:
  Returns:
  */

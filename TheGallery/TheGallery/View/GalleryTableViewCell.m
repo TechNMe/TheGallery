@@ -26,8 +26,8 @@
 @synthesize imageLoadingIndicator = _imageLoadingIndicator;
 
 /*
- Function:
- Description:
+ Function: initWithStyle:reuseIdentifier
+ Description: Overriding for custom setup
  Parameters:
  Returns:
  */
@@ -43,8 +43,8 @@
 }
 
 /*
- Function:
- Description:
+ Function: initializeView
+ Description:Initialize this cell view designing specifically for the gally list view requirement
  Parameters:
  Returns:
  */
@@ -81,8 +81,8 @@
 
 
 /*
- Function:
- Description:
+ Function: setupCustomConstraints
+ Description: Setup constaints to the label view for growing the cell in accordance with the description label hight
  Parameters:
  Returns:
  */
@@ -99,7 +99,7 @@
 }
 
 /*
- Function:
+ Function: setSelected:animated
  Description:
  Parameters:
  Returns:
@@ -111,8 +111,8 @@
 
 
 /*
- Function:
- Description:
+ Function: layoutSubviews
+ Description: Overriding layout subviews growing the cell in accordance with the description label hight
  Parameters:
  Returns:
  */

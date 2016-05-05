@@ -11,30 +11,32 @@
 @implementation UIView (LoadingView)
 
 /*
- Function:
- Description:
- Parameters:
+ Function: addLoadingViewWithMessage
+ Description: Adds an overlay view to the invoking view with an activity indicator and messge string
+ Parameters: 
+    message: Messge to be displayed along with activity indicator
  Returns:
  */
 -(void)addLoadingViewWithMessage:(NSString*)message
 {
+    //Create the overlay view
     UIView* loadingView             = [[UIView alloc] initWithFrame:CGRectZero];
     loadingView.backgroundColor     = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
     loadingView.tag                 = kLoadingViewTag;
     
+    //Create the message label
     UILabel* label                  = [[UILabel alloc] initWithFrame:CGRectZero];
     label.text                      = message;
     
+    //Create the activity indicator
     UIActivityIndicatorView* activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
     [activityIndicator setFrame:CGRectZero];
     
-        
-    //Custom Constraints for the sub views
-    
+
     //Add label
     [loadingView addSubview:label];
     
-    //Constraints for Label
+    //Constraints for Label - keep it to the center
     label.translatesAutoresizingMaskIntoConstraints = NO;
     
     NSLayoutConstraint* xCenterConstraint = [NSLayoutConstraint constraintWithItem:label
@@ -59,7 +61,7 @@
     //Add activity indicator
     [loadingView addSubview:activityIndicator];
 
-    //Constraints for activity indicator
+    //Constraints for activity indicator - keep it to the centre
     activityIndicator.translatesAutoresizingMaskIntoConstraints = NO;
     
     xCenterConstraint = [NSLayoutConstraint constraintWithItem:activityIndicator
@@ -96,8 +98,8 @@
 }
 
 /*
- Function:
- Description:
+ Function: removeLoadingView
+ Description: Removes the overlay view
  Parameters:
  Returns:
  */

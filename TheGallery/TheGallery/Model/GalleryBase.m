@@ -11,8 +11,8 @@
 @implementation GalleryBase
 
 /*
-Function:
-Description:
+Function: setAttributesWithDictionary
+Description: Parses the the dictionary of JSON data as per the class properity keys and updates the respective property value
 Parameters:
 Returns:
 */

@@ -50,8 +50,8 @@
 }
 
 /*
- Function:
- Description:
+ Function: initializeView
+ Description: Initialize the gallary list view UI with data from server
  Parameters:
  Returns:
  */
@@ -70,11 +70,8 @@
         [self.view removeLoadingView];
         if (!error)
         {
-            dispatch_async(dispatch_get_main_queue(), ^{
-            
             [self setUpTitleBar];
             [self createAndAddTableView];
-            });
         }
 
     }];
@@ -82,8 +79,8 @@
 }
 
 /*
- Function:
- Description:
+ Function: setUpTitleBar
+ Description: Sets the navigation title as received from the server
  Parameters:
  Returns:
  */
@@ -98,22 +95,13 @@
 
 
 /*
- Function:
- Description:
+ Function: createAndAddTableView
+ Description: Creates the table view with data source and delegate as self
  Parameters:
  Returns:
  */
 -(void)createAndAddTableView
 {
-    
-//If derived from UITableViewController
-//    self.refreshControl = [[UIRefreshControl alloc] init];
-//    self.refreshControl.backgroundColor = [UIColor colorWithRed:0.6862 green:0.6078 blue:0.6549 alpha:1];
-//    self.refreshControl.tintColor = [UIColor whiteColor];
-//    [self.refreshControl addTarget:self
-//                            action:@selector(updateGalleryData)
-//                  forControlEvents:UIControlEventValueChanged];
-    
     //Seyup table
     self.galleryTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     self.galleryTableView.translatesAutoresizingMaskIntoConstraints = NO;

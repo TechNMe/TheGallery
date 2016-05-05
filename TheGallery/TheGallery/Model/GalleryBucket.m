@@ -30,16 +30,6 @@
  Parameters:
  Returns:
  */
-- (id)copyWithZone:(NSZone *)zone {
-    GalleryBucket *newObj = [[[self class] allocWithZone:zone] init];
-    if(newObj)
-    {
-        [newObj setTitle:[self title]];
-        [newObj setRows:[self rows]];
-    }
-    return newObj;
-}
-
 - (instancetype)init
 {
     self = [super init];
@@ -51,8 +41,8 @@
 }
 
 /*
- Function:
- Description:
+ Function: fetchUpdatedGalleryBucketWithCallback
+ Description: Fetches the data for the model from server. Executes completion block once the session request is executed
  Parameters:
  Returns:
  */
@@ -82,8 +72,8 @@
 }
 
 /*
- Function:
- Description:
+ Function: updateBucketWithData
+ Description: Prases the JSON response and sets the attributes of the model. This can be optimized and implemented in GallertyBase
  Parameters:
  Returns:
  */
@@ -108,8 +98,8 @@
 
 
 /*
- Function:
- Description:
+ Function:resourceURL
+ Description: Returns the resource url of the model
  Parameters:
  Returns:
  */
@@ -120,8 +110,8 @@
 
 
 /*
- Function:
- Description:
+ Function:classNameFor
+ Description: Property string manipulation functions. In cases of having a class with different name than that of JSON response key
  Parameters:
  Returns:
  */
