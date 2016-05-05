@@ -167,8 +167,8 @@
 
 
 /*
- Function:
- Description:
+ Function: lazyLoadingOfImages
+ Description: From the image URL of the gallery item for the cell the data is downloaded and image is set on cell thumnail imageview
  Parameters:
  Returns:
  */
@@ -230,6 +230,8 @@
     
     [cell layoutSubviews];
     
+    
+    //Calculate the new height for the call based on the description text view height or the image view height - which ever is the greatest
     CGFloat height = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
     
     if (cell.imageView.frame.size.height > height)
