@@ -45,6 +45,16 @@
 {
     [super viewDidLoad];
     
+    UIButton *refreshButton = [[UIButton alloc] init];
+    [refreshButton setTitle:@"Your string" forState:UIControlStateNormal];
+    //[refreshButton setImage:[UIImage imageNamed:@"default.jpg"] forState:UIControlStateNormal];
+    [refreshButton addTarget:self action:@selector(updateGalleryData:) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *refreshButtonItem = [[UIBarButtonItem alloc] initWithCustomView:refreshButton];
+    
+    self.navigationItem.rightBarButtonItem = refreshButtonItem;
+
+    
     //Initialise the UI
     [self initializeView];
 }
@@ -88,9 +98,18 @@
 {
     NSMutableDictionary *titleBarAttributes = [NSMutableDictionary dictionaryWithDictionary: [[UINavigationBar appearance] titleTextAttributes]];
     [titleBarAttributes setValue:[UIFont fontWithName:@"Helvetica-Bold" size:16] forKey:NSFontAttributeName];
+    
     [self.navigationController.navigationBar setTitleTextAttributes:titleBarAttributes];
     
     self.navigationItem.title = self.currentGalleryBucket.title;
+    
+    NSMutableDictionary *refreshButtonAttributes = [NSMutableDictionary dictionaryWithDictionary: [[UINavigationBar appearance] titleTextAttributes]];
+    [refreshButtonAttributes setValue:[UIFont fontWithName:@"Helvetica" size:12] forKey:NSFontAttributeName];
+
+    UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithTitle:@"Refresh" style:UIBarButtonItemStylePlain target:self action:@selector(updateGalleryData:)];
+    self.navigationItem.rightBarButtonItem = refreshButton;
+    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:refreshButtonAttributes forState:UIControlStateNormal];
+
 }
 
 
@@ -239,11 +258,14 @@
  Parameters:
  Returns:
  */
--(void)updateGalleryData
+-(void)updateGalleryData:(id)sender
 {
+    [self.view addLoadingViewWithMessage:@"Loading"];
+
     [self.currentGalleryBucket fetchUpdatedGalleryBucketWithCallback:^(NSError *error)
      {
-        // [self.refreshControl endRefreshing];
+         [self.view removeLoadingView];
+
          if (!error)
          {
              [self setUpTitleBar];
