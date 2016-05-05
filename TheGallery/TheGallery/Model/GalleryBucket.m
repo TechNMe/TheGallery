@@ -26,8 +26,8 @@
 {
     self = [super init];
     if (self) {
-        _title = [[NSString alloc] init];
-        _rows = [[NSMutableArray alloc] init]; //TODO
+//        _title = [[NSString alloc] init];
+//        _rows = [[NSMutableArray alloc] init];
     }
     return self;
 }

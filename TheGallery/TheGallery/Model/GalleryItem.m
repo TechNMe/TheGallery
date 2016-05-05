@@ -20,9 +20,9 @@
 {
     self = [super init];
     if (self) {
-        _title = [[NSString alloc] init];
-        _descriptionString = [[NSString alloc] init];
-        _imageHref = [[NSString alloc] init];
+//        _title = [[NSString alloc] init];
+//        _descriptionString = [[NSString alloc] init];
+//        _imageHref = [[NSString alloc] init];
     }
     return self;
 }
