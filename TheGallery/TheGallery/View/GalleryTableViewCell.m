@@ -57,11 +57,12 @@
     self.imageView.backgroundColor = [UIColor lightGrayColor];
     self.imageView.contentMode = UIViewContentModeScaleAspectFill;
     self.imageView.clipsToBounds = YES;
+    self.imageView.layer.cornerRadius = 10.0;
     [self.contentView addSubview:self.imageView];
     
     
     self.imageLoadingIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
-    [self.imageLoadingIndicator  setFrame:CGRectMake(30, 35, 50, 50)];
+    [self.imageLoadingIndicator  setFrame:CGRectMake(35, 40, 50, 50)];
     [self.contentView addSubview:self.imageLoadingIndicator];
 
     self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(120, 10, 100, 20)];
