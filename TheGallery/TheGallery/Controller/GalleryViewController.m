@@ -44,8 +44,20 @@
     reachability = [Reachability reachabilityWithHostName:kDataURLDomain];
     [reachability startNotifier];
 
-    //Initialise the UI
-    [self initializeView];
+    reachability = [Reachability reachabilityWithHostName:kDataURLDomain];
+    
+    NetworkStatus networkStatus = [reachability currentReachabilityStatus];
+    if (networkStatus == NotReachable)
+    {
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Alert!" message:@"Not able to reach server" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    }
+    else
+    {
+        //Initialise the UI
+        [self initializeView];
+    }
+    
 }
 
 /*
@@ -272,18 +284,6 @@
 
 }
 
-#pragma mark --Utils--
-
--(void)handleNetworkChange
-{
-    NetworkStatus remoteHostStatus = [reachability currentReachabilityStatus];
-    
-    if(remoteHostStatus == NotReachable)
-    {
-        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Alert!" message:@"Not able to reach server" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
-    }
-}
 
 #pragma mark --Memory Management--
 
