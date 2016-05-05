@@ -10,6 +10,12 @@
 
 @implementation GalleryBase
 
+/*
+Function:
+Description:
+Parameters:
+Returns:
+*/
 -(void)setAttributesWithDictionary:(NSDictionary*)jsonObjArray
 {
     NSArray* keyArray = [jsonObjArray allKeys];
@@ -39,6 +45,10 @@
 
 }
 
+
+
+
+//Property string manipulation functions
 -(NSString*)mappingForCodingConvention:(NSString*)inAttributeKey
 {
     //Override on if required

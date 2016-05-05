@@ -24,6 +24,12 @@
 
 @synthesize rows = _rows;
 
+/*
+ Function:
+ Description:
+ Parameters:
+ Returns:
+ */
 - (id)copyWithZone:(NSZone *)zone {
     GalleryBucket *newObj = [[[self class] allocWithZone:zone] init];
     if(newObj)
@@ -44,22 +50,12 @@
     return self;
 }
 
-//-(void)fetchUpdatedGalleryBucketWithCallback:(void (^)(NSError *error))callabck
-//{
-//    [self fetchDataFromServerWithCallback:^(NSError *error)
-//    {
-//        if (!error)
-//        {
-//            callabck(nil);
-//
-//        }
-//       
-//        callabck(error);
-//    }];
-//    
-//}
-
-
+/*
+ Function:
+ Description:
+ Parameters:
+ Returns:
+ */
 -(void)fetchUpdatedGalleryBucketWithCallback:(void (^)(NSError *error))completionCallback
 {
     NSURL* dataURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kDataURLDomain,[self resourceURL]]];
@@ -85,6 +81,12 @@
     
 }
 
+/*
+ Function:
+ Description:
+ Parameters:
+ Returns:
+ */
 -(void)updateBucketWithData:(NSData*)data
 {
     NSError *error = nil;
@@ -105,13 +107,24 @@
 }
 
 
+/*
+ Function:
+ Description:
+ Parameters:
+ Returns:
+ */
 -(NSString*)resourceURL
 {
     return @"u/746330/facts.json";
 }
 
 
-
+/*
+ Function:
+ Description:
+ Parameters:
+ Returns:
+ */
 -(NSString*)classNameFor:(NSString*)inAttributeKey
 {
     if ([inAttributeKey isEqualToString:@"rows"])

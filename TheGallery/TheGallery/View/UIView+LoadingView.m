@@ -10,6 +10,12 @@
 
 @implementation UIView (LoadingView)
 
+/*
+ Function:
+ Description:
+ Parameters:
+ Returns:
+ */
 -(void)addLoadingViewWithMessage:(NSString*)message
 {
     UIView* loadingView             = [[UIView alloc] initWithFrame:CGRectZero];
@@ -89,6 +95,12 @@
 
 }
 
+/*
+ Function:
+ Description:
+ Parameters:
+ Returns:
+ */
 -(void)removeLoadingView
 {
     NSArray* subViews = [self subviews];
@@ -99,11 +111,6 @@
             [subView removeFromSuperview];
         }
     }
-}
-
--(void)customContraints
-{
-    
 }
 
 @end

@@ -35,6 +35,12 @@
 
 #pragma mark --UI Setup--
 
+/*
+ Function:
+ Description:
+ Parameters:
+ Returns:
+ */
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -43,6 +49,12 @@
     [self initializeView];
 }
 
+/*
+ Function:
+ Description:
+ Parameters:
+ Returns:
+ */
 -(void)initializeView
 {
     self.view.backgroundColor = [UIColor colorWithRed:1.0 green:0.9746 blue:0.933 alpha:1];
@@ -62,7 +74,6 @@
             
             [self setUpTitleBar];
             [self createAndAddTableView];
-//            [self.galleryTableView reloadData];
             });
         }
 
@@ -70,6 +81,12 @@
 
 }
 
+/*
+ Function:
+ Description:
+ Parameters:
+ Returns:
+ */
 -(void)setUpTitleBar
 {
     NSMutableDictionary *titleBarAttributes = [NSMutableDictionary dictionaryWithDictionary: [[UINavigationBar appearance] titleTextAttributes]];
@@ -79,9 +96,17 @@
     self.navigationItem.title = self.currentGalleryBucket.title;
 }
 
+
+/*
+ Function:
+ Description:
+ Parameters:
+ Returns:
+ */
 -(void)createAndAddTableView
 {
     
+//If derived from UITableViewController
 //    self.refreshControl = [[UIRefreshControl alloc] init];
 //    self.refreshControl.backgroundColor = [UIColor colorWithRed:0.6862 green:0.6078 blue:0.6549 alpha:1];
 //    self.refreshControl.tintColor = [UIColor whiteColor];
@@ -113,6 +138,12 @@
 
 #pragma mark --TableView Callbacks--
 
+/*
+ Function:
+ Description:
+ Parameters:
+ Returns:
+ */
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     GalleryTableViewCell* cell = [[GalleryTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kCellIdentifier];
@@ -138,6 +169,12 @@
 }
 
 
+/*
+ Function:
+ Description:
+ Parameters:
+ Returns:
+ */
 -(void)lazyLoadingOfImages: (GalleryItem *)galleryItem cell: (GalleryTableViewCell *)cell
 {
     if (![galleryItem.imageHref isEqualToString:@""])
@@ -168,7 +205,12 @@
     }
 }
 
-
+/*
+ Function:
+ Description:
+ Parameters:
+ Returns:
+ */
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [self.currentGalleryBucket.rows count];
@@ -203,6 +245,12 @@
 
 #pragma mark --Data Management--
 
+/*
+ Function:
+ Description:
+ Parameters:
+ Returns:
+ */
 -(void)updateGalleryData
 {
     [self.currentGalleryBucket fetchUpdatedGalleryBucketWithCallback:^(NSError *error)
@@ -221,6 +269,12 @@
 
 #pragma mark --Memory Management--
 
+/*
+ Function:
+ Description:
+ Parameters:
+ Returns:
+ */
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
