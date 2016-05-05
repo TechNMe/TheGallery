@@ -10,12 +10,6 @@
 
 @implementation GalleryItem
 
-@synthesize title = _title;
-
-@synthesize descriptionString = _descriptionString;
-
-@synthesize imageHref = _imageHref;
-
 /*
  Function:
  Description:

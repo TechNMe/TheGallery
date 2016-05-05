@@ -14,9 +14,7 @@
 
 @interface GalleryViewController ()
 {
-    UITableView* _galleryTableView;
-    
-    GalleryBucket* _currentGalleryBucket;
+    Reachability* reachability;
 }
 
 @property (strong, nonatomic) UITableView* galleryTableView;
@@ -28,9 +26,6 @@
 
 @implementation GalleryViewController
 
-@synthesize galleryTableView = _galleryTableView;
-
-@synthesize currentGalleryBucket = _currentGalleryBucket;
 
 
 #pragma mark --UI Setup--
@@ -45,6 +40,10 @@
 {
     [super viewDidLoad];
     
+    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(handleNetworkChange) name: kReachabilityChangedNotification object: nil];
+    reachability = [Reachability reachabilityWithHostName:kDataURLDomain];
+    [reachability startNotifier];
+
     //Initialise the UI
     [self initializeView];
 }
@@ -68,7 +67,7 @@
     [self.currentGalleryBucket fetchUpdatedGalleryBucketWithCallback:^(NSError *error)
     {
         [self.view removeLoadingView];
-        if (!error)
+        if (!error && self.currentGalleryBucket.rows.count > 0)
         {
             [self setUpTitleBar];
             [self createAndAddTableView];
@@ -174,7 +173,7 @@
  */
 -(void)lazyLoadingOfImages: (GalleryItem *)galleryItem cell: (GalleryTableViewCell *)cell
 {
-    if (![galleryItem.imageHref isEqualToString:@""])
+    if (![galleryItem.imageHref isEqualToString:@""] && galleryItem.imageHref != nil )
     {
         cell.imageLoadingIndicator.hidden = NO;
         [cell.imageLoadingIndicator startAnimating];
@@ -199,6 +198,10 @@
                 cell.imageLoadingIndicator.hidden = YES;
             });
         });
+    }
+    else
+    {
+        cell.imageView.image = [UIImage imageNamed:@"default.jpg"];
     }
 }
 
@@ -234,9 +237,9 @@
     //Calculate the new height for the call based on the description text view height or the image view height - which ever is the greatest
     CGFloat height = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
     
-    if (cell.imageView.frame.size.height > height)
+    if (CGRectGetMaxY(cell.imageView.frame) > height)
     {
-        height = cell.imageView.frame.size.height;
+        height = cell.imageView.frame.size.height +20;
     }
     return height +20;
 }
@@ -269,6 +272,18 @@
 
 }
 
+#pragma mark --Utils--
+
+-(void)handleNetworkChange
+{
+    NetworkStatus remoteHostStatus = [reachability currentReachabilityStatus];
+    
+    if(remoteHostStatus == NotReachable)
+    {
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Alert!" message:@"Not able to reach server" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    }
+}
 
 #pragma mark --Memory Management--
 

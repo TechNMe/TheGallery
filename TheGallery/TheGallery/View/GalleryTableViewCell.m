@@ -8,22 +8,9 @@
 
 #import "GalleryTableViewCell.h"
 
-@interface GalleryTableViewCell()
-{
-    
-}
-
-@end
-
 @implementation GalleryTableViewCell
 
-@synthesize descriptionLabel = _descriptionLabel;
-
-@synthesize imageView = _imageView;
-
-@synthesize titleLabel = _titleLabel;
-
-@synthesize imageLoadingIndicator = _imageLoadingIndicator;
+@synthesize imageView;
 
 /*
  Function: initWithStyle:reuseIdentifier

@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Reachability.h"
 
 @interface GalleryViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
-
 
 @end
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		813060551CDB718A00F9C3B8 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 813060541CDB718A00F9C3B8 /* Reachability.m */; settings = {ASSET_TAGS = (); }; };
 		813B146D1CD8D64700C0B7E1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 813B146C1CD8D64700C0B7E1 /* Default-568h@2x.png */; settings = {ASSET_TAGS = (); }; };
 		813B14931CD8E47700C0B7E1 /* GalleryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 813B14921CD8E47700C0B7E1 /* GalleryTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		813B14961CD8E4B600C0B7E1 /* GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 813B14951CD8E4B600C0B7E1 /* GalleryViewController.m */; settings = {ASSET_TAGS = (); }; };
@@ -21,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		813060531CDB718A00F9C3B8 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = Utils/Reachability.h; sourceTree = "<group>"; };
+		813060541CDB718A00F9C3B8 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = Utils/Reachability.m; sourceTree = "<group>"; };
 		813B146C1CD8D64700C0B7E1 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		813B14911CD8E47700C0B7E1 /* GalleryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GalleryTableViewCell.h; path = View/GalleryTableViewCell.h; sourceTree = "<group>"; };
 		813B14921CD8E47700C0B7E1 /* GalleryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GalleryTableViewCell.m; path = View/GalleryTableViewCell.m; sourceTree = "<group>"; };
@@ -56,6 +59,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		813060521CDB715000F9C3B8 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				813060531CDB718A00F9C3B8 /* Reachability.h */,
+				813060541CDB718A00F9C3B8 /* Reachability.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 		816439961CD8AED700A3B092 = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +92,7 @@
 				816439B91CD8AFE300A3B092 /* Model */,
 				816439BA1CD8AFEA00A3B092 /* View */,
 				816439BB1CD8AFF100A3B092 /* Controller */,
+				813060521CDB715000F9C3B8 /* Utils */,
 				816439BC1CD8B00C00A3B092 /* Resources */,
 				816439A21CD8AED700A3B092 /* Supporting Files */,
 			);
@@ -218,6 +231,7 @@
 				813C54891CD9AFB6002541C0 /* UIView+LoadingView.m in Sources */,
 				813B14991CD8ED6700C0B7E1 /* GalleryBucket.m in Sources */,
 				816439A71CD8AED700A3B092 /* AppDelegate.m in Sources */,
+				813060551CDB718A00F9C3B8 /* Reachability.m in Sources */,
 				816439A41CD8AED700A3B092 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
