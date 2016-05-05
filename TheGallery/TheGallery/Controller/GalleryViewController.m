@@ -260,11 +260,12 @@
  */
 -(void)updateGalleryData:(id)sender
 {
-    [self.view addLoadingViewWithMessage:@"Loading"];
+    //As of now no UI blocking while loading data.. can be enabled if required
+    //[self.view addLoadingViewWithMessage:@"Loading"];
 
     [self.currentGalleryBucket fetchUpdatedGalleryBucketWithCallback:^(NSError *error)
      {
-         [self.view removeLoadingView];
+         //[self.view removeLoadingView];
 
          if (!error)
          {
